@@ -7,11 +7,18 @@ export var timeout: int = 3
 # switch is interacted with
 # don't know if that's in yet
 
+func _ready():
+	animation = "on"
+
+func _process(delta):
+	if Input.is_action_pressed("ui_select"):
+		interact()
+
 func interact():
 	animation = "on"
 	play()
 	emit_signal("switch_on")
-	#create timer with timeout variable
+	#create timer using timeout variable
 	yield(get_tree().create_timer(timeout), "timeout")
 	animation = "off"
 	play()
