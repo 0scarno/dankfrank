@@ -47,9 +47,19 @@ func movement(delta):
 		velocity.y = lerp(velocity.y, y_direction * climb_speed, acceleration)
 	if y_direction == 0:
 		velocity.y = 0
+		
 	if !ladder and !is_on_floor():
 		velocity.y = lerp(velocity.y, gravity, fall_damp)
-	
+		
 	velocity = move_and_slide(velocity, Vector2.UP)
 	##TODO: Add jumping if neccessary 
-	
+		
+	# Animation
+	if velocity.length() > 0.1:
+		$AnimatedSprite.play()
+	else:
+		$AnimatedSprite.stop()
+
+	if velocity.x !=0:
+		$AnimatedSprite.animation = "run"
+		$AnimatedSprite.flip_h = velocity.x < 0
