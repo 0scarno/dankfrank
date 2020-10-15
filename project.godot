@@ -18,6 +18,10 @@ _global_script_class_icons={
 config/name="dankfrank"
 config/icon="res://icon.png"
 
+[autoload]
+
+GameController="*res://Autoload/GameController.tscn"
+
 [display]
 
 window/size/width=300
