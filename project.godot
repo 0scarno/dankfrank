@@ -24,7 +24,7 @@ GameController="*res://Autoload/GameController.tscn"
 
 [display]
 
-window/size/width=300
+window/size/width=304
 window/size/height=612
 window/handheld/orientation="portrait"
 window/stretch/mode="2d"

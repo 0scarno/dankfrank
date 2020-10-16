@@ -1,25 +1,25 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Sprites/Tiles/tile_0068.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/switch_going_off.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Switch.gd" type="Script" id=2]
-[ext_resource path="res://Sprites/Tiles/tile_0067.png" type="Texture" id=3]
-
+[ext_resource path="res://Sprites/switch_off.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/switch_on.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/switch_going_on.png" type="Texture" id=5]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 1 ), ExtResource( 3 ) ],
+"frames": [ ExtResource( 3 ), ExtResource( 5 ), ExtResource( 4 ) ],
 "loop": false,
 "name": "on",
-"speed": 5.0
+"speed": 20.0
 }, {
-"frames": [ ExtResource( 3 ), ExtResource( 1 ) ],
+"frames": [ ExtResource( 4 ), ExtResource( 1 ), ExtResource( 3 ) ],
 "loop": false,
 "name": "off",
-"speed": 5.0
+"speed": 20.0
 } ]
 
 [node name="Switch" type="AnimatedSprite"]
-position = Vector2( 8, 8 )
 frames = SubResource( 1 )
 animation = "off"
 script = ExtResource( 2 )
