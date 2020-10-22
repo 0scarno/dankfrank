@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Sprites/PlaceholderSprites.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=2]
@@ -6,11 +6,15 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 5.99344, 5.63751 )
 
+[sub_resource type="RectangleShape2D" id=2]
+
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
 }
+climb_speed = -400
+slide_speed = -800
 gravity = 4000
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
@@ -20,3 +24,10 @@ animation = "run"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 2.48532 )
 shape = SubResource( 1 )
+
+[node name="Detector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detector"]
+shape = SubResource( 2 )
+[connection signal="area_shape_entered" from="Detector" to="." method="_on_Detector_area_shape_entered"]
+[connection signal="body_entered" from="Detector" to="." method="_on_Detector_body_entered"]

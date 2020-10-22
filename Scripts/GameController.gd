@@ -11,11 +11,11 @@ func _ready():
 	game_is_over = false
 
 func on_switch_off():
-	print_debug("switch off!")
+	pass
 	
 
 func on_switch_on():
-	print_debug("switch on!")
+	pass
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

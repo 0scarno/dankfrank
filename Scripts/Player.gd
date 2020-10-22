@@ -13,6 +13,8 @@ var x_direction = 0
 var y_direction = 0
 var ladder = false 
 var pole = false
+var can_move = true
+var collisions
 
 func set_ladder(param):
 	ladder = param
@@ -32,12 +34,15 @@ func get_input():
 	if Input.is_action_pressed("down"):
 		if ladder or pole:
 			y_direction -= 1
+	if Input.is_action_just_pressed("interact"):
+		interact()
 			
 	
 
 func _physics_process(delta):
-	get_input()
-	movement(delta)
+	if can_move:
+		get_input()
+		movement(delta)
 			
 func _process(delta):
 	pass
@@ -68,3 +73,14 @@ func movement(delta):
 	if velocity.x !=0:
 		$AnimatedSprite.animation = "run"
 		$AnimatedSprite.flip_h = velocity.x < 0
+
+func interact():
+	if collisions != null and collisions.has_method("interact"):
+		collisions.interact();
+	else:
+		print("cannot interact")
+	
+func _on_Detector_area_shape_entered(area_id, area, area_shape, self_shape):
+	print(area.get_parent().name)
+	collisions = area.get_parent()
+
