@@ -2,6 +2,7 @@ extends AnimatedSprite
 
 signal switch_on
 signal switch_off
+var GC #GameController
 
 export var timeout: int = 3
 # switch is interacted with
@@ -9,6 +10,13 @@ export var timeout: int = 3
 
 func _ready():
 	animation = "on"
+	GC = get_node("/root/GameController")
+	if GC != null:
+		connect("switch_on", GC, "on_switch_on")
+		connect("switch_off", GC, "on_switch_off")
+	else:
+		push_warning("GameController cannot be found")
+		
 
 func _process(delta):
 	if Input.is_action_pressed("ui_select"):
