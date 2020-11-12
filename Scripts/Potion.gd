@@ -7,6 +7,7 @@ export var min_ttc = 3 #ttc = Time To Complete
 export var max_ttc = 6
 
 var interactable = false
+var cooking = false
 var rng = RandomNumberGenerator.new()
 
 signal job_status(b_is_done)
@@ -19,7 +20,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 # warning-ignore:unused_argument
 func _process(delta):
-	if !interactable:
+	if cooking:
 		modulate = modulate.linear_interpolate(Color.red, delta * 0.1)
 	else:
 		modulate = modulate.linear_interpolate(Color.white, delta * 0.1)
@@ -42,9 +43,10 @@ func _on_Detector_body_exited(body):
 		
 func potion_start():
 	interactable = false
+	cooking = true
 	print_debug("Potion Start")
 	
 func potion_end():
-	interactable = true
+	
 	print_debug("Potion End")
 	emit_signal("job_status", true)
