@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Prefabs/LadderTile.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Prefabs/Potion.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Prefabs/Lightening.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Sprites/Background.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/FrankensteinTable.png" type="Texture" id=9]
 
 [node name="Node2D" type="Node2D"]
 position = Vector2( 0, 256 )
@@ -47,6 +48,10 @@ wait_time = 10.0
 position = Vector2( 152, 40 )
 z_index = -1
 texture = ExtResource( 8 )
+
+[node name="FrankensteinTable" type="Sprite" parent="."]
+position = Vector2( 96, -16 )
+texture = ExtResource( 9 )
 
 [editable path="LadderTile"]
 
