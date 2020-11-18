@@ -4,11 +4,13 @@
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 5.99344, 5.63751 )
+extents = Vector2( 7.03236, 13.9897 )
 
 [sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 6.94728, 14.0575 )
 
 [node name="Player" type="KinematicBody2D"]
+position = Vector2( -0.0850792, 1.3613 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
@@ -19,13 +21,15 @@ gravity = 4000
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = ExtResource( 1 )
-animation = "run"
+animation = "RUN"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 2.48532 )
+position = Vector2( 0, 2 )
 shape = SubResource( 1 )
 
 [node name="Detector" type="Area2D" parent="."]
+position = Vector2( 0, 2 )
+gravity_vec = Vector2( 0, 0 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detector"]
 shape = SubResource( 2 )

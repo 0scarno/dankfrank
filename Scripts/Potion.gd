@@ -6,19 +6,23 @@ var timer;
 var color = 1;
 
 onready var detector = $Detector
-var interactable = false
+onready var GC = get_node("/root/GameController")
+
 export var min_ttc = 3 #ttc = Time To Complete
 export var max_ttc = 6
 export var time_until_spoil = 4
 
+var interactable = false
+var cooking = false
 var rng = RandomNumberGenerator.new()
 var time = 0
+
+signal job_status(b_is_done)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	current_state = states.START
 	pass # Replace with function body.
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
