@@ -71,7 +71,7 @@ func movement(delta):
 		$AnimatedSprite.stop()
 
 	if velocity.x !=0:
-		$AnimatedSprite.animation = "run"
+		$AnimatedSprite.animation = "RUN"
 		$AnimatedSprite.flip_h = velocity.x < 0
 
 func interact():

@@ -21,6 +21,7 @@ signal job_status(b_is_done)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	connect("job_status", GC, "on_job_status")
 	current_state = states.START
 	pass # Replace with function body.
 
@@ -32,14 +33,17 @@ func _process(delta):
 		states.START:
 			return
 		states.COOKING:
+			modulate = Color.pink
 			return
 		states.SIMMERING:
-			color = cos(time * (100 * delta)) * 255 + 1
-			modulate = Color8( color, 0 , 0 )
+			color = cos(time * (200 * delta)) * 120 + 120
+			modulate = Color8( 255 , color , 255 )
 			return
 		states.FINISHED:
+			modulate = Color.aquamarine
 			return
 		states.SPOILED:
+			modulate = Color.red
 			return 
 		
 
@@ -92,6 +96,7 @@ func potion_end():
 		print_debug(states.keys()[current_state])
 	
 func potion_complete():
+	emit_signal("job_status", true)
 	print_debug("Potion Completed, YEHAW!")
 	
 func potion_spoiled():
