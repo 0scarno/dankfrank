@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Prefabs/LadderTile.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Prefabs/Lightening.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Sprites/Background.png" type="Texture" id=8]
 [ext_resource path="res://Sprites/FrankensteinTable.png" type="Texture" id=9]
+[ext_resource path="res://Prefabs/Plug.tscn" type="PackedScene" id=10]
 
 [node name="Node2D" type="Node2D"]
 position = Vector2( 0, 256 )
@@ -55,6 +56,17 @@ texture = ExtResource( 8 )
 position = Vector2( 96, -16 )
 texture = ExtResource( 9 )
 
+[node name="Plug" parent="." instance=ExtResource( 10 )]
+position = Vector2( 175.967, 161.017 )
+
+[node name="Fork" parent="Plug" index="0"]
+position = Vector2( -2.64865, -10.5946 )
+
+[node name="Plug" parent="Plug" index="1"]
+position = Vector2( 35.492, -11.1243 )
+
 [editable path="LadderTile"]
 
 [editable path="PoleColider"]
+
+[editable path="Plug"]
