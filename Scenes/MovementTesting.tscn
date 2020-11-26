@@ -60,10 +60,10 @@ texture = ExtResource( 9 )
 position = Vector2( 175.967, 161.017 )
 
 [node name="Fork" parent="Plug" index="0"]
-position = Vector2( -2.64865, -10.5946 )
+position = Vector2( 49.7921, 145.978 )
 
 [node name="Plug" parent="Plug" index="1"]
-position = Vector2( 35.492, -11.1243 )
+position = Vector2( 45.2972, -93.3804 )
 
 [editable path="LadderTile"]
 

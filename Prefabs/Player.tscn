@@ -19,7 +19,9 @@ climb_speed = -400
 slide_speed = -800
 gravity = 4000
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." groups=[
+"Player",
+]]
 frames = ExtResource( 1 )
 animation = "RUN"
 

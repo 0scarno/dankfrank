@@ -77,6 +77,8 @@ func movement(delta):
 func interact():
 	if collisions != null and collisions.has_method("interact"):
 		collisions.interact();
+	if collisions != null and collisions.get_parent().has_method("interact"):
+		collisions.get_parent().interact(collisions.name) ##for plug
 	else:
 		print("cannot interact")
 	
